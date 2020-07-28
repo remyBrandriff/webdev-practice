@@ -81,7 +81,8 @@
   </div>
 </div>
 
-<br>
+<br> <hr> <br>
+
 
 <h3>Tabs</h3>
 
@@ -115,6 +116,12 @@
 
 			</div>
 		</div>
+	</div>
+</div>
+
+<br> <hr> <br>
+<div>
+
 		<div class="col-sm-6">
 			<div id="about">
 				<div id="London" class="tabcontent">
@@ -137,18 +144,85 @@
 				  <p>Oslo is the capital of Norway.</p>
 				</div>
 
-				<button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen">London</button>
+				<button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpenCity">London</button>
 				<button class="tablink" onclick="openCity('Paris', this, 'green')">Paris</button>
 				<button class="tablink" onclick="openCity('Tokyo', this, 'blue')">Tokyo</button>
 				<button class="tablink" onclick="openCity('Oslo', this, 'orange')">Oslo</button>
 
 			</div>
 		</div>
-
 	</div>
-</div>
+
+	<br> <hr> <br>
 
 
+<h3>Lists & Tables</h3>
+
+<h4>Sorting a list alphabetically</h4>
+<p>Click the button to sort the list alphabetically! Click it once for ascending order (A-Z), and another time for descending (Z-A).</p>
+<button onClick="sortList1()">Sort</button>
+<ul id="list1">
+	<li>Russian</li>
+	<li>Esperanto</li>
+	<li>English</li>
+	<li>French</li>
+	<li>Mandarin</li>
+	<li>Spanish</li>
+	<li>Italiano</li>
+	<li>Nederlands</li>
+	<li>Afrikaans</li>
+	<li>Tagalong</li>
+	<li>Bosanki</li>
+	<li>Dansk</li>
+</ul>
+
+<br>
+
+<h4>Sorting a table</h4>
+<p>Click the button to sort the table alphabetically by name</p>
+<button onClick="sortTable1()">Sort</button>
+<table id="table1">
+  <tr>
+    <th>Language</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>HTML/HTML5</td>
+    <td>Markup</td>
+  </tr>
+  <tr>
+    <td>Java</td>
+    <td>Object-oriented</td>
+  </tr>
+  <tr>
+    <td>C++</td>
+    <td>Object-oriented</td>
+  </tr>
+  <tr>
+    <td>C#</td>
+    <td>Structured</td>
+  </tr>
+  <tr>
+    <td>JavaScript</td>
+    <td>Scripting</td>
+  </tr>
+  <tr>
+    <td>CSS</td>
+    <td>Stylesheet</td>
+  </tr>
+  <tr>
+    <td>PHP</td>
+    <td>Scripting</td>
+  </tr>
+  <tr>
+    <td>MATLAB</td>
+    <td>Computing</td>
+  </tr>
+	<tr>
+    <td>ArnoldC</td>
+    <td>Esoteric</td>
+  </tr>
+</table>
 
 <script>
 	function openCity(cityName, elmnt, color) {
@@ -173,7 +247,77 @@
 	}
 
 	// Get the element with id="defaultOpen" and click on it
-	document.getElementById("defaultOpen").click();
+	document.getElementById("defaultOpenCity").click();
+
+
+	function sortList1() {
+		var list, i, switching, b, shouldSwitch, dir, switchcount = 0;
+		list = document.getElementById("list1");
+		switching = true;
+		dir = "ascend";
+
+		// loop for switching, until there are no more switches to be made
+		while (switching) {
+			switching = false;
+			b = list.getElementsByTagName("LI");
+			for(i = 0; i < (b.length - 1); i++) {
+				shouldSwitch = false;
+
+				if (dir == "ascend") {
+					if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+						shouldSwitch = true;
+						break;
+					}
+				} else if (dir == "descend") {
+					if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
+          	shouldSwitch= true;
+          	break;
+        	}
+				}
+			}
+			if (shouldSwitch) {
+				b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      	switching = true;
+				switchcount ++;
+			} else {
+				if (switchcount == 0 && dir == "ascend") {
+        	dir = "descend";
+        	switching = true;
+      	}
+			}
+		}
+	}
+
+	function sortTable1() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("table1");
+  switching = true;
+
+  while (switching) {
+
+    switching = false;
+    rows = table.rows;
+
+    for (i = 1; i < (rows.length - 1); i++) {
+
+      shouldSwitch = false;
+
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
 </script>
 
 
