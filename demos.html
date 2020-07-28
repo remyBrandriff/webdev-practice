@@ -30,7 +30,8 @@
   <!-- intro/text -->
 
   <p>Portfolio website, I have no fucking clue what I want to do with it yet</p>
-	<p>Please note that this is just for demos, and elements may not be fully functional (such as social media logins, etc.). Please reach out to me for details, or any questions or comments!</p>
+	<p>Please note that this is just for demos, to showcase a little of what I can do, and elements may not be fully functional (such as social media logins, etc.). This demos page also does not make full use of the js/scripts.js file, and heavily relies on embedded scripting included in the .html file; while I acknowledge this is bad practice, the demos page is not intensive enough to require linking to a separate file as of now.</p>
+	<p>Please reach out to me for details, or any questions or comments!</p>
 	<hr>
 
 
@@ -159,7 +160,7 @@
 <h3>Lists & Tables</h3>
 
 <h4>Sorting a list alphabetically</h4>
-<p>Click the button to sort the list alphabetically! Click it once for ascending order (A-Z), and another time for descending (Z-A).</p>
+<p>Click the button to sort the list alphabetically! Click it once for ascending order (A to Z), and another time for descending (Z to A).</p>
 <button onClick="sortList1()">Sort</button>
 <ul id="list1">
 	<li>Russian</li>
@@ -222,6 +223,49 @@
     <td>ArnoldC</td>
     <td>Esoteric</td>
   </tr>
+</table>
+
+<p>This table is sorted by clicking the headers instead of a button! Click <b>Name</b> or <b>Location</b> to see it work.</p>
+<p><b>Hint!</b> Click once to sort in ascending order (A to Z), and click a second time to sort in descending order (Z to A)</p>
+
+<table id="table2">
+	<tr>
+		<th onclick="sortTable2(0)">Name</th>
+		<th onclick="sortTable2(1)">Location</th>
+	</tr>
+	<tr>
+    <td>The Flash</td>
+    <td>Central City</td>
+  </tr>
+  <tr>
+    <td>Batman</td>
+    <td>Gotham</td>
+  </tr>
+  <tr>
+    <td>Spider-Man</td>
+    <td>New York</td>
+  </tr>
+  <tr>
+    <td>Black Panther</td>
+    <td>Wakanda</td>
+  </tr>
+  <tr>
+    <td>Starfire</td>
+    <td>Tamaran</td>
+  </tr>
+  <tr>
+    <td>Daredevil</td>
+    <td>Hell's Kitchen</td>
+  </tr>
+  <tr>
+    <td>Teen Titans</td>
+    <td>Jump City</td>
+  </tr>
+  <tr>
+    <td>Loki</td>
+    <td>???</td>
+  </tr>
+
 </table>
 
 <script>
@@ -315,6 +359,61 @@
 
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
+    }
+  }
+}
+
+function sortTable2(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("table2");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc";
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
     }
   }
 }
