@@ -1,0 +1,63 @@
+/* new css sheet for website
+   started 10/22/16
+*/
+
+body, h1, h3, h4, p, li { font-family: verdana; } /* Sets font */
+
+#header { background-color: #E84A4A; /* Sets properties for header section */
+          position: relative;
+          width: 100%; }
+#header h1 { height: 1.5em;
+             line-height: 2.5em;
+             margin: 1em;
+             padding-left: 0em; }
+#header h3 { height: 0em;
+             line-height: 1em;
+             margin: 1em;
+             margin-left: 1.75em; }
+#header h5 { padding-right: 1em;
+             text-align: right; }
+#header p { height: 0em;
+            line-height: 0em;
+            margin-left: 2em;
+            padding-top: 1.5em;
+            padding-right: 1em;
+            text-align: right; }
+#content { text-align: left; /* Sets properties for container */
+           width: auto;
+           margin: 100px;
+           background-color: #ffffff; }
+#footer { background-color: #636363; /* Sets properties for footer */
+          clear: left;
+          width: 100%; }
+#footer p { margin: 0;
+            padding: 5px 10px;
+            font-size: .85em; }
+
+/* drop down menus */
+.dropbtn { background-color: #636363;
+           color: white;
+           padding: 1em;
+           font-size: 1em;
+           border: none;
+           cursor: pointer; }
+.dropbtn:hover, .dropbtn:focus { background-color: #8C8C8C;
+                                 color: white; }
+.dropdown { position: relative;
+            display: inline-block;
+            margin-left: 80%; }
+.dropdown2 { position: relative;
+             display: inline-block;
+             margin-left: 50%; }
+.dropdown-content { display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    min-width: 160px;
+                    overflow: auto;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); }
+.dropdown-content a { color: black;
+                      padding: .75em 1em;
+                      text-decoration: none;
+                      display: block; }
+.dropdown-content a:hover { background-color: #f1f1f1; }
+.show { display: block; }
