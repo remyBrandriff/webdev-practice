@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Movie Theater Seat Selector Demo</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Adapted from https://github.com/bradtraversy/vanillawebprojects/tree/master/movie-seat-booking -->
+
+<!-- TODO: I want to expand this to the full theater website, add checkout form, and ability to clear selected seats; also modify so the selected seats clear when you choose a new movie, and different seat configurations for the different movies -->
+
+<div class="navbar">
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Now Showing</a></li>
+		<li><a href="#">Coming Soon</a></li>
+		<li><a href="#">Buy Tickets</a></li>
+		<li><a href="#">$5 Fridays</a></li>
+		<li><a href="#">Find us</a></li>
+	</ul>
+</div>
+
+<div class="page">
+
+	<h2>Join us for $5 Fridays at the Gigantoplex!</h2>
+	<p>All tickets $5 and a 5% discount on all concessions</p>
+
+	<div class="movie-list">
+		<label>This week's movies</label>
+		<select id="movie">
+			<option value="1">The Incredibles - $5</option>
+			<option value="2">Lilo & Stitch - $5</option>
+			<option value="3">Spirited Away - $5</option>
+			<option value="4">Bad Genius - $5</option>
+			<option value="5">Naruto the Movie: Ninja Clash in the Land of Snow - $5</option>
+			<option value="6">Monty Python and the Holy Grail - $5</option>
+			<option value="7">Mission Impossible: Ghost Protocol - $5</option>
+			<option value="8">Cabin in the Woods - $5</option>
+			<option value="9">The Road to El Dorado - $5</option>
+			<option value="10">The Old Guard - $5</option>
+		</select>
+		<p>Use our special tool to choose seats ahead of time to reserve your spot. Just choose the movie you want to see from the dropdown menu and click on the seats you want to highlight them. </p>
+
+	</div>
+
+	<div class="tool">
+
+		<ul class="showcase">
+			<li>
+				<div class="seat"></div>
+			</li>
+			<li>
+				<div class="seat selected"></div>
+			</li>
+			<li>
+				<div class="seat occupied"></div>
+			</li>
+		</ul>
+
+		<div class="container">
+			<div class="screen"></div>
+			<div class="row">
+				<div class="seat occupied"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat occupied"></div>
+				<div class="seat occupied"></div>
+			</div>
+			<div class="row">
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat occupied"></div>
+				<div class="seat occupied"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat occupied"></div>
+			</div>
+			<div class="row">
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat occupied"></div>
+				<div class="seat occupied"></div>
+			</div>
+			<div class="row">
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+			</div>
+			<div class="row">
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat occupied"></div>
+				<div class="seat occupied"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+			</div>
+			<div class="row">
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat"></div>
+				<div class="seat occupied"></div>
+				<div class="seat occupied"></div>
+				<div class="seat occupied"></div>
+				<div class="seat"></div>
+			</div>
+		</div>
+
+		<p class="text">
+			<span id="count">0</span> seats selected.
+			<strong>Total - </strong> $<span id="total">0</span>
+		</p>
+		<input type="submit" value="Buy tickets">
+
+	</div>
+
+</div>
+
+<footer>
+	<p>Come visit us in the Galleria Mall!</p>
+	<p>Open Tuesday - Sunday, 11am - 1am, closed on Mondays</p>
+</footer>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

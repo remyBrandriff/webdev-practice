@@ -1,0 +1,49 @@
+<!-- Adapted from https://github.com/bradtraversy/vanillawebprojects/tree/master/form-validator -->
+
+<div class="container">
+	<form id="form" class="form">
+
+		<h2>get started with us</h2>
+
+		<div class="form-control">
+			<label for="fname">First name</label>
+			<input type="text" id="fname" placeholder="what's your first name" required />
+			<small>Check that again!</small>
+		</div>
+
+		<div class="form-control">
+			<label for="lname">Last name</label>
+			<input type="text" id="lname" placeholder="what's your last name" required />
+			<small>Is your caps lock on?</small>
+		</div>
+
+		<div class="form-control">
+			<label for="email">Email*</label>
+			<input type="text" id="email" placeholder="how do we reach you?" required />
+			<small>Please make sure that's right</small>
+		</div>
+
+		<div class="form-control">
+			<label for="username">Username</label>
+			<input type="text" id="username" placeholder="choose a username" required />
+			<small>Are you sure?</small>
+		</div>
+
+		<div class="form-control">
+			<label for="password">Password</label>
+			<input type="password" id="password" placeholder="password" required />
+			<small>This doesn't look right</small>
+		</div>
+
+		<div class="form-control">
+			<label for="password2">Confirm password</label>
+			<input type="password" id="password2" placeholder="re-enter your password" required />
+			<small>This doesn't look right</small>
+		</div>
+
+		<small>* We promise we don't want to send you a bunch of emails you won't read, we hate that too. But we need to be able to reach you just in case, like site updates or changes to your account</small>
+
+		<button type="submit">let's go!</button>
+
+	</form>
+</div>
